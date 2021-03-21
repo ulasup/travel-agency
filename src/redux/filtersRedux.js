@@ -36,7 +36,7 @@ export default function reducer(statePart = [], action = {}) {
     case ADD_TAG:
       return {
         ...statePart,
-        tags: [statePart.tags, action.payload],
+        tags: [...statePart.tags, action.payload],
       };
     case REMOVE_TAG:
       return {
