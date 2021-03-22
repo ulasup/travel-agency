@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Trip from './Trip';
+import Trip from './Trip.js';
 import {getTripById} from '../../../redux/tripsRedux';
 import {getCountryByCode} from '../../../redux/countriesRedux';
 
