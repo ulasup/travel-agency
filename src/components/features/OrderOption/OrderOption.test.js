@@ -128,9 +128,21 @@ for(let type in optionTypes){
         break;
       }
 
-      /* case 'checkboxes': {
+      case 'checkboxes': {
+        it('input contains checkboxes', () => {
+          const inputs = renderedSubcomponent.find('input');
+          expect(inputs.length).toBe(mockProps.values.length);
+          expect(inputs.at(0).prop('type')).toEqual('checkbox');
+          expect(inputs.at(1).prop('type')).toEqual('checkbox');
+        });
 
-      } */
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find(`input[value="${testValue}"]`).simulate('change', {currentTarget: {checked: true}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: [mockProps.currentValue, testValue] });
+        });
+        break;
+      }
 
       case 'number': {
         it('contains input', () => {
