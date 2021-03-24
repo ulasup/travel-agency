@@ -114,11 +114,21 @@ for(let type in optionTypes){
         break;
       }
 
-      /* case 'icons': {
+      case 'icons': {
+        it('div contains icon', () => {
+          const div = renderedSubcomponent.find('div .icon');
+          expect(div.length).toBe(1);
+        });
 
+        it('should run setOrderOption on last div on click', () => {
+          renderedSubcomponent.find('div .icon').last().simulate('click');
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+        });
+        break;
       }
 
-      case 'checkboxes': {
+      /* case 'checkboxes': {
 
       }
 
