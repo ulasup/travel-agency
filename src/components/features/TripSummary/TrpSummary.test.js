@@ -14,5 +14,14 @@ describe('Component TripSummary', () => {
 
     expect(component.find('.link').prop('to')).toEqual(expectedLink);
   });
+
+  it('img has correct src and alt', () => {
+    const expectedSrc = 'image';
+    const expectedAlt = 'name';
+    const component = shallow(<TripSummary image={expectedSrc} name={expectedAlt} tags={[]}/>); //dlaczego wyrzuca blad jak brak tagow??
+
+    expect(component.find('img').prop('src')).toEqual(expectedSrc);
+    expect(component.find('img').prop('alt')).toEqual(expectedAlt);
+  });
 });
 
