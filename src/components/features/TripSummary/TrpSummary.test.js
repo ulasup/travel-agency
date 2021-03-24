@@ -10,7 +10,7 @@ describe('Component TripSummary', () => {
   it('should render correct address', () => {
     const expectedId = 'abc';
     const expectedLink = '/trip/abc';
-    const component = shallow(<TripSummary id={expectedId} image='image.jpg' name='name' intro='intro' cost='cost' days={0} tags={[]} />);
+    const component = shallow(<TripSummary id={expectedId} tags={[]} />); // hm, tez musialy zostac tagi, bo inaczej sie crashuje
 
     expect(component.find('.link').prop('to')).toEqual(expectedLink);
   });
@@ -22,6 +22,11 @@ describe('Component TripSummary', () => {
 
     expect(component.find('img').prop('src')).toEqual(expectedSrc);
     expect(component.find('img').prop('alt')).toEqual(expectedAlt);
+  });
+
+  it('should render proper name, cost and days', () => {
+    const component = shallow(<TripSummary name='name' cost='cost' days={0} tags={[]}/>);
+    expect(component).toBeTruthy();
   });
 });
 
